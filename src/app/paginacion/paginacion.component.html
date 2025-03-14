@@ -1,0 +1,34 @@
+<div class="container">
+
+<table class="table">
+    @for (ordenador of ordenadores; track ordenador.serie) {
+
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Número de serie</th>
+            <th></th>
+        </tr>
+    </thead>
+          
+    <tbody>      
+    <tr>
+
+        <td>{{ordenador.modelo}}</td>
+        <td>{{ordenador.marca}}</td>
+        <td>{{ordenador.precio}}</td>
+        <td>{{ordenador.serie}}</td>
+        <td><input type="button" class="btn btn-primary" (click)="borrar(ordenador.serie)" value="borrar"></td>
+
+
+
+    </tr>
+    </tbody>
+    }
+
+</table>
+
+<a routerLink="/formularioordenador">ir a formulario</a>
+</div>
