@@ -14,7 +14,7 @@
         <tr *ngFor="let ordenador of ordenadores;">
           <td>{{ordenador.modelo}}</td>
           <td>{{ordenador.marca}}</td>
-          <td>{{ordenador.precio}}</td>
+          <td>{{ordenador.precio | number:'1.2-2' }}</td>
           <td>{{ordenador.serie}}</td>
           <td>
             <button class="btn btn-danger btn-sm" (click)="borrar(ordenador.serie)">

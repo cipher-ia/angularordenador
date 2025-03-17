@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Ordenador } from '../ordenador';
 import { OrdenadorRestService } from '../ordenador-rest.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+import { NgFor, DecimalPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-paginacion',
-  imports: [RouterLink,NgFor],
+  imports: [RouterLink,NgFor,DecimalPipe],
   templateUrl: './paginacion.component.html',
   styleUrl: './paginacion.component.scss'
 })
@@ -48,14 +48,6 @@ export class PaginacionComponent {
 
       })
 
-    } else {
-
-      this.ordenadorRestService.buscarTodos().subscribe((datosordenador)=> {
-
-        this.ordenadores=datosordenador;
-        console.log(datosordenador);
-
-      })
     }
 
 
