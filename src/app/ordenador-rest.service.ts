@@ -9,6 +9,9 @@ import { Ordenador } from './ordenador';
 })
 export class OrdenadorRestService {
 
+
+ 
+
   constructor(private httpClient:HttpClient) {}
 
   public buscarTodos():Observable<Ordenador[]>{
@@ -34,8 +37,13 @@ export class OrdenadorRestService {
 
   public borrar(serie:string):Observable<void>{
 
-    return this.httpClient.delete<void>(`http://localhost:8080/ordenador/${serie}`);
+    return this.httpClient.delete<void>(`http://localhost:8080/webapi/ordenador/${serie}`);
 
+  }
+
+  mostrarElementos(inicio: number, elementos: number):Observable<Ordenador[]> {
+    let url=(`http://localhost:8080/webapi/ordenador/paginado?atras=${inicio}&vista=${elementos}`)
+    return this.httpClient.get<Ordenador[]>(url);
   }
 
 }
